@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <section class="add-products-section">
+                <div class="add-products-section-container">
+                    <h1 class="text-info text-center">Paying for {{ product.prod_name }}</h1>
+                    <form action="" method="post">
+                        {% csrf_token %}
+
+                        <div class="form-group">
+                            <input required class="form-control" name="nambari" placeholder=" Enter phone number e.g 2547..." type="text">
+                        </div>
+                        <input type="hidden" name="pesa" value="{{ product.prod_price }}">
+                        <div class="form-group">
+                            <input class="btn btn-info" name="btn-pay" value="Pay" type="submit">
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+        </div>
+        <div class="col-3"></div>
+    </div>
+{% endblock %}
